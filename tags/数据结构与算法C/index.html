@@ -6,19 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>进程、线程和协程 | Cogito的博客</title>
+  <title>Tag: 数据结构与算法	C++ | Cogito的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="进程和线程，并行和并发，是操作系统的基本概念，但是它们比较抽象，不容易掌握，需要理清楚。 进程和线程先来看计算机只有单核CPU的情况。 当我们需要在电脑上上执行多个应用程序时，如打游戏、听歌、浏览网页，叫做执行多任务。 单核CPU的多任务是如何执行的呢？答案就是操作系统轮流让各个任务交替执行，任务1执行0.01秒，切换到任务2，任务2执行0.01秒，再切换到任务3，执行0.01秒……这样反复执行下">
-<meta property="og:type" content="article">
-<meta property="og:title" content="进程、线程和协程">
-<meta property="og:url" content="http://yoursite.com/2020/07/22/%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%8D%8F%E7%A8%8B/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Cogito的博客">
+<meta property="og:url" content="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95C/index.html">
 <meta property="og:site_name" content="Cogito的博客">
-<meta property="og:description" content="进程和线程，并行和并发，是操作系统的基本概念，但是它们比较抽象，不容易掌握，需要理清楚。 进程和线程先来看计算机只有单核CPU的情况。 当我们需要在电脑上上执行多个应用程序时，如打游戏、听歌、浏览网页，叫做执行多任务。 单核CPU的多任务是如何执行的呢？答案就是操作系统轮流让各个任务交替执行，任务1执行0.01秒，切换到任务2，任务2执行0.01秒，再切换到任务3，执行0.01秒……这样反复执行下">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-07-22T05:47:14.000Z">
-<meta property="article:modified_time" content="2020-07-22T05:47:14.000Z">
 <meta property="article:author" content="Cogito">
-<meta property="article:tag" content="操作系统">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Cogito的博客" type="application/atom+xml">
@@ -155,184 +150,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-进程、线程和协程" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      进程、线程和协程
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/07/25/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%BB%A3%E7%A0%81%E6%80%BB%E7%BB%93/" class="archive-article-date">
+  	<time datetime="2020-07-25T02:29:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-25</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/07/25/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%BB%A3%E7%A0%81%E6%80%BB%E7%BB%93/">排序算法代码总结</a>
     </h1>
   
 
-        
-        <a href="/2020/07/22/%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%8D%8F%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2020-07-22T05:47:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>进程和线程，并行和并发，是操作系统的基本概念，但是它们比较抽象，不容易掌握，需要理清楚。</p>
-<h2 id="进程和线程"><a href="#进程和线程" class="headerlink" title="进程和线程"></a>进程和线程</h2><p>先来看计算机只有单核CPU的情况。</p>
-<p>当我们需要在电脑上上执行多个应用程序时，如打游戏、听歌、浏览网页，叫做执行<strong>多任务</strong>。</p>
-<p>单核CPU的多任务是如何执行的呢？答案就是操作系统轮流让各个任务交替执行，任务1执行0.01秒，切换到任务2，任务2执行0.01秒，再切换到任务3，执行0.01秒……这样反复执行下去。表面上看，每个任务都是交替执行的，但是，由于CPU的执行速度实在是太快了，我们感觉就像所有任务都在同时执行一样。对于操作系统来说，一个任务就是一个<strong>进程</strong>（Process），比如打开一个浏览器就是启动一个浏览器进程，打开一个记事本就启动了一个记事本进程，打开两个记事本就启动了两个记事本进程，打开一个Word就启动了一个Word进程。</p>
-<p>一个进程有时候还不止同时干一件事，比如Word，它可以同时进行打字、拼写检查、打印等事情。在一个进程内部，要同时干多件事，就需要同时运行多个“子任务”，我们把进程内的这些“子任务”称为<strong>线程</strong>（Thread）。这些线程都运行在这个进程的上下文中会共享进程的内存空间、代码、全局数据。</p>
-<p>当我们想要同时执行多个任务怎么办？<br>有两种解决方案：</p>
-<p>一种是启动多个进程，每个进程虽然只有一个线程，但多个进程可以一块执行多个任务。</p>
-<p>还有一种方法是启动一个进程，在一个进程内启动多个线程，这样，多个线程也可以一块执行多个任务。</p>
-<p>当然还有第三种方法，就是启动多个进程，每个进程再启动多个线程，这样同时执行的任务就更多了，当然这种模型更复杂，实际很少采用。</p>
-<p>总结一下就是，多任务的实现有3种方式：</p>
-<pre><code>多进程模式；
-多线程模式；
-多进程+多线程模式。</code></pre><p>一般来说，线程比进程更容易共享数据，更高效，多处理器时，多线程也是一种是的程序可以更快运行的方法。</p>
-<p>简单来说，计算机的单核CPU会同时运行多个任务（进程），叫做<strong>并发</strong>。也就是说单核CPU会快速切换多个进程，使我们看起来这些程序像是在同时运行一样，同时，一个进程也会有一个或以上的线程，线程们会共享资源，单核CPU一个时刻也只能运行在一个线程上。线程是最小的执行单元，而进程由至少一个线程组成。如何调度进程和线程，完全由操作系统决定，程序自己不能决定什么时候执行，执行多长时间。</p>
-<p>然后我们来看一下多核CPU的情况。</p>
-<p>当核心数变多时，最大的不同就是整个处理器可以同一时刻运行在多个进程上，也能够真正的同时执行多个线程。多核CPU同一时刻执行多个进程叫做==并行。并行指的是物理运行状态，并发则是更抽象的概念。<br>并行一定会允许并发，二者并不是互斥的概念。</p>
-<h2 id="协程"><a href="#协程" class="headerlink" title="协程"></a>协程</h2><p>又称微线程或纤程。</p>
-<p>协程是一种用户态的轻量级线程，协程的调度完全由用户控制。协程拥有自己的寄存器上下文和栈。协程调度切换时，将寄存器上下文和栈保存到其他地方，在切回来的时候，恢复先前保存的寄存器上下文和栈，直接操作栈则基本没有内核切换的开销，可以不加锁的访问全局变量，所以上下文的切换非常快。</p>
-<ul>
-<li>协程是属于线程的。协程程序是在线程里面跑的，因此协程又称微线程和纤程等</li>
-<li>协程没有线程的上下文切换消耗。协程的调度切换是用户(程序员)手动切换的,因此更加灵活,因此又叫用户空间线程.</li>
-<li>原子操作性。由于协程是用户调度的，所以不会出现执行一半的代码片段被强制中断了，因此无需原子操作锁。</li>
-</ul>
-<p>1) 一个线程可以多个协程，一个进程也可以单独拥有多个协程，这样python中则能使用多核CPU。</p>
-<p>2) 线程进程都是同步机制，而协程则是异步</p>
-<p>3) 协程能保留上一次调用时的状态，每次过程重入时，就相当于进入上一次调用的状态</p>
-<h2 id="互斥锁、信号量"><a href="#互斥锁、信号量" class="headerlink" title="互斥锁、信号量"></a>互斥锁、信号量</h2><p>前面说到多线程的上下文共享，每个线程都可以使用共享的内存。可是有的时候一个线程在使用某些共享内存时，其他线程必须等它结束，才能使用这一块内存。就像每间房间的大小不同，有些房间最多只能容纳一个人。一个防止他人进入的简单方法，就是门口加一把锁。先到的人锁上门，后到的人看到上锁，就在门口排队，等锁打开再进去。这就叫”<strong>互斥锁</strong>“（Mutual exclusion，缩写Mutex），防止多个线程同时读写某一块内存区域。</p>
-<p>还有些房间，可以同时容纳n个人，比如厨房。也就是说，如果人数大于n，多出来的人只能在外面等着。这好比某些内存区域，只能供给固定数目的线程使用。</p>
-<p>这时的解决方法，就是在门口挂n把钥匙。进去的人就取一把钥匙，出来时再把钥匙挂回原处。后到的人发现钥匙架空了，就知道必须在门口排队等着了。这种做法叫做”<strong>信号量</strong>“（Semaphore），用来保证多个线程不会互相冲突。</p>
-<p>不难看出，mutex是semaphore的一种特殊情况（n=1时）。也就是说，完全可以用后者替代前者。但是，因为mutex较为简单，且效率高，所以在必须保证资源独占的情况下，还是采用这种设计。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">数据结构与算法	C++</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/22/%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%8D%8F%E7%A8%8B/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2020/07/24/%E5%B7%A6%E5%80%BC%E3%80%81%E5%8F%B3%E5%80%BC%E3%80%81%E5%B7%A6%E5%80%BC%E5%BC%95%E7%94%A8%E5%92%8C%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          左值、右值、左值引用和右值引用
-        
-      </div>
-    </a>
   
   
-    <a href="/2020/01/14/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%B5%8B%E8%AF%95/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">我的第一篇博客测试</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -355,9 +226,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
