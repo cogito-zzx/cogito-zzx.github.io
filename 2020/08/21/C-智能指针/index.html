@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Cogito的博客">
 <meta property="og:description" content="我们先来看一下栈对象和堆对象的区别。 什么时候该用 Object object;  什么时候该用 Object *object;  object&#x3D;new Object(); 感觉看起来没什么区别，其实不一样：前一个是栈对象，后一个是堆对象。 栈对象的优势是在适当的时候自动生成，又在适当的时候自动销毁，不需要程序员操心；而且栈对象的创建速度一般较堆对象快，因为分配堆对象时，会调用 operator">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://yoursite.com/2020/08/21/C-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/img/postimg/498397160_0951_20200822-081413.png">
+<meta property="og:image" content="http://yoursite.com/img/postimg/498397160_0951_20200822-081413.png">
 <meta property="og:image" content="http://yoursite.com/2020/08/21/C-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/img/postimg/498397160_1305_20200822-082036.png">
 <meta property="og:image" content="http://yoursite.com/2020/08/21/C-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/img/postimg/498397160_0519_20200822-080713.png">
 <meta property="og:image" content="http://yoursite.com/2020/08/21/C-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/img/postimg/498397160_0829_20200822-081847.png">
@@ -27,7 +27,7 @@
 <meta property="article:author" content="Cogito">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/08/21/C-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/img/postimg/498397160_0951_20200822-081413.png">
+<meta name="twitter:image" content="http://yoursite.com/img/postimg/498397160_0951_20200822-081413.png">
   
     <link rel="alternative" href="/atom.xml" title="Cogito的博客" type="application/atom+xml">
   
@@ -201,7 +201,7 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Entity</span>&#123;</span></span><br><span class="line">	<span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">shared_ptr</span>&lt;Entity&gt; e1(<span class="keyword">new</span> Entity()) <span class="comment">//OK</span></span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">shared_ptr</span>&lt;Entity&gt; e1=<span class="built_in">std</span>:make_shared&lt;Entity&gt;(); <span class="comment">//preferred</span></span><br><span class="line"><span class="keyword">auto</span> e1 = <span class="built_in">std</span>:make_shared&lt;Entity&gt;(); <span class="comment">//preferred</span></span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">shared_ptr</span>&lt;Entity&gt; e2 = e1;<span class="comment">//copyable, use_count + 1</span></span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">shared_ptr</span>&lt;Entity&gt; e2 = <span class="built_in">std</span>::<span class="built_in">move</span>(e1) <span class="comment">//movable, use_coount remains</span></span><br><span class="line">foo(<span class="built_in">std</span>::<span class="built_in">move</span>(e1)) <span class="comment">//use_coount remains</span></span><br><span class="line">foo(e1) <span class="comment">//use_coount + 1</span></span><br></pre></td></tr></table></figure>
 
 <p>支持定制型删除器（custom deleter），可防范 Cross-DLL 问题（对象在动态链接库（DLL）中被 new 创建，却在另一个 DLL 内被 delete 销毁）、自动解除互斥锁。</p>
-<p><img src="img/postimg/498397160_0951_20200822-081413.png" alt=""></p>
+<p><img src="/img/postimg/498397160_0951_20200822-081413.png" alt=""></p>
 <p>下面看个例子：</p>
 <p><img src="img/postimg/498397160_1305_20200822-082036.png" alt=""></p>
 <h4 id="unique-ptr"><a href="#unique-ptr" class="headerlink" title="unique_ptr"></a>unique_ptr</h4><p>unique_ptr 是 C++11  才开始提供的类型，是一种在异常时可以帮助避免资源泄漏的智能指针。采用独占式拥有，意味着可以确保一个对象和其相应的资源同一时间只被一个  pointer 拥有。一旦拥有着被销毁或编程 empty，或开始拥有另一个对象，先前拥有的那个对象就会被销毁，其任何相应资源亦会被释放。</p>
